@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.product.dao.SalesDao">
+	<resultMap type="Sales" id="uq1">
+	<id column="sales_id" property="sales_id" />
+	<result column="total" property="total" />
+	<result column="yuefen" property="yuefen" />
+	<collection property="emp" ofType="Emp" >
+		
+		<result column="ename" property="ename" />
+	</collection>
+	<collection property="product" ofType="Product">
+		
+		<result column="pname" property="pname" />
+	</collection>
+</resultMap>
+	<select id="showsales" resultMap="uq1">
+		select sales.sales_id,emp.ename,product.pname,sales.total,sales.yuefen
+		from emp,product,sales
+		where sales.emp_id=emp.eid and product.pid=sales.product_id and yuefen=#{yuefen}
+	</select>
+	
+	<select id="selsalesall" resultType="Sales">
+		select * from sales
+	</select>
+	<select id="check" resultType="int">
+		select pnum from product where pid=#{pid}
+	</select>
+	<update id="into_goods" >
+	update product SET
+	pnum=pnum+#{num}
+	where pid=#{pid}
+	</update>
+	<insert id="record_goods" parameterType="Record">
+		insert into record(pname,num,date,caozuo)
+		values((select pname from product where pid=#{pid}),#{num},now(),#{caozuo})
+	</insert>
+	<select id="pageselallrecord" parameterType="int" resultType="Record">
+		select * from record limit #{offset},#{limit}
+	</select>
+	
+
+	<select id="count_record" resultType="int" >
+		select count(*) from record
+	</select>
+	
+</mapper>

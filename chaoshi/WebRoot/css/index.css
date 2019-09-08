@@ -1,0 +1,109 @@
+ 		*{
+        margin: 0px;
+        padding: 0px;
+        word-wrap: break-word;
+        word-break:break-all;
+    		} 
+        body{
+            background-image:url("../images/bg2.jpg");
+            background-repeat:no-repeat;
+			background-size:100% 100%;
+			background-attachment: fixed;
+            font: 20px/4em Helvetica,Arial,sans-serif;
+            margin: 0px 
+        }
+        a{
+            color: #0287CA;
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        ul,li{
+            list-style: none;
+        }
+      
+       #list img{
+        width: 600px;
+         height: 400px;
+         float:left
+        }
+   
+          html{
+            overflow: -moz-scrollbars-vertical;
+        }  
+         #navigation{
+            padding: 0px;
+            margin: 0px auto;
+            background: #C0C0C0;
+            height: 100px
+        }
+        #navigation ul li{
+            float: left;
+            margin-right: 14px;
+            position: relative;
+            z-index: 100;
+        }
+        #navigation ul li a{
+            display: block;
+            padding: 0 8px;
+            background: #EEEEEE;
+            font-weight: 700;
+        }
+        #navigation ul li a:hover{
+            background: none;
+            color: #fff;
+        }
+        #navigation ul li ul{
+            background-color: #88C366;
+            position: absolute;
+            width: 100px;
+            overflow: hidden;
+            display: none;
+        }
+        #navigation ul li ul li{
+            border-bottom: 1px solid #BBB;
+            text-align: left;
+            width: 100%;
+        } 
+        
+        #container{
+        width:600px;
+        height:400px;
+        overflow:hidden;
+        position:relative;
+        }
+        
+        #list{
+        width:3000px;
+        height:400px;
+        
+        position:absolute; 
+        top:20px;
+        z-index:1;
+        }
+        #body p{
+        right:0px
+        }
+        .arrow{
+        cursor:pointer;
+        line-height:39px;
+        text-align:center;
+        font-size:36px;
+        font-weight:bold;
+        width:40px;
+        height:40px;
+        position:absolute;
+        z-index:2;
+        top:180px;
+        background-color: RGBA(0,0,0,0.3);
+        color:#fff
+        }
+        span{
+        top:0px
+        font-family: font-family: Times, TimesNR, 'New Century Schoolbook',
+     Georgia, 'New York', serif;;
+     line-height:30px
+        }
+
+ 

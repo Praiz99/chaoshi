@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.product.dao.UserDao">
+
+	<select id="checkUserInfo" parameterType="User" resultType="User">
+	SELECT * FROM user WHERE username=#{username} and password=#{password}
+	</select>
+	<insert id="insertUser" parameterType="User">
+	insert into user(username,password)
+	values(#{username},#{password})
+	</insert>
+	<update id="updapass" >
+	update user set
+	password=#{1}
+	where uid=#{0}
+	</update>
+	<select id="Inspection_user" resultType="int" >
+	select count(*) from user where username=#{username}
+	</select>
+	<update id="upimg">
+	 update user set
+	 photo=#{photo}
+	 where uid=#{uid}
+	</update>
+	<insert id="add_advice" parameterType="User">
+	insert into umessage(uid ,realname,telephone,advice,createtime ) value(#{uid},#{umessages.realname},#{umessages.telephone},#{umessages.advice},now())
+	</insert>
+	
+	<insert id="add_favorite">
+		INSERT INTO nicedetail(uid,nice, createtime) VALUES(#{uid}, 1, now()) ON DUPLICATE KEY UPDATE nice=ABS(nice-1);
+	</insert>
+	<select id="select_favorite" resultType="boolean">
+		select nice from nicedetail where uid=#{uid}
+	</select>
+</mapper>
